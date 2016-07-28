@@ -1,0 +1,3 @@
+The bot relies on 3D-printed parts, like a seed injector, watering nozzle, and a weed destroyer to carry out its farm work. FarmBot also requires minimal infrastructure, including an internet connection, water flow, electricity, and a planter bed.
+
+Although FarmBot's creators are marketing this as the future of farming, in reality, it'll likely be mainly used mostly for small gardens, at least to start. The demo video suggests that a human might never need to interact with their plants again and that could be tempting to a certain type of farmer, one who wants their own produce without all the manual labor.
