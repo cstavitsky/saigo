@@ -20,9 +20,10 @@ func TestStripPunc(t *testing.T) {
 
 // Program should provide a correct count of word occurences
 // Program should count capital, lowercase as the same word (The/the)
+// Whitespace and empty strings should not be counted as words
 
 func TestWordOccurs(t *testing.T) {
-	words := []string{"hello","the","when","plastic","hello", "the", "the", "The"}
+	words := []string{"hello","the","when","plastic","hello", "the", "the", "The", "", " "}
 	expected := map[string]int{
 		"hello": 2,
 		"the": 4,

@@ -29,8 +29,11 @@ func StripPunc(str string) string {
 func WordOccurs(words []string) map[string]int {
   wordOccurs := make(map[string]int)
   for _, word := range words {
-    word = strings.ToLower(word)
-    wordOccurs[word] += 1
+    word = strings.TrimSpace(word)
+    if len(word) > 0 {
+      word = strings.ToLower(word)
+      wordOccurs[word] += 1
+    }
   }
   return wordOccurs
 }
