@@ -5,11 +5,30 @@ import (
 	"os"
 	"strings"
 	"saigo/exercise-001-corpus/count_sort/word_count"
+  "sort"
 )
 
 type Word struct {
-	Text string
-	Occurs int
+	text string
+	numOccurs int
+}
+
+type ByOccurrences []Word
+
+func (this ByOccurrences) Len() int {
+  return len(this)
+}
+
+func (this ByOccurrences) Less(i, j int) bool {
+  if this[i].numOccurs == this[j].numOccurs {
+    return this[j].text < this[i].text
+  } else {
+    return this[i].numOccurs < this[j].numOccurs
+  }
+}
+
+func (this ByOccurrences) Swap(i, j int) {
+  this[i], this[j] = this[j], this[i]
 }
 
 func main() {
@@ -25,13 +44,21 @@ func main() {
   // Count and store number of occurrences per word
   wordOccurs := word_count.WordOccurs(words)
 
-  fmt.Println(wordOccurs)
-
   // Sort word occurrences from greatest to least
-  // words := []Word
-  // for text, occurs := range wordOccurs {
-  // 	word := Word{}
-  // 	append(words, )
-  // }
+  var wordObjects []Word
+  for k, v := range wordOccurs {
+      word := Word{
+      text  : k,
+      numOccurs: v,
+    }
+    wordObjects = append(wordObjects, word)
+  }
+
+  sort.Sort(sort.Reverse(ByOccurrences(wordObjects)))
+  // sort.Reverse(ByOccurrences(wordObjects))
+
+  for _, word := range wordObjects {
+    fmt.Println(word.numOccurs, word.text)
+  }
 
 }
