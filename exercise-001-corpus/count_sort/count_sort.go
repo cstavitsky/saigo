@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"strings"
-  "sort"
 	"saigo/exercise-001-corpus/count_sort/word_count"
   "saigo/exercise-001-corpus/count_sort/word_sort"
 )
@@ -23,17 +22,9 @@ func main() {
   wordOccurs := word_count.WordOccurs(words)
 
   // Create Word objects
-  var wordObjects []word_sort.Word
-  for k, v := range wordOccurs {
-      word := word_sort.Word{
-      Text  : k,
-      NumOccurs: v,
-    }
-    wordObjects = append(wordObjects, word)
-  }
+  wordObjects := word_sort.BuildWords(wordOccurs)
 
-  // Sort word occurrences from greatest to least
-  sort.Sort(sort.Reverse(word_sort.ByOccurrences(wordObjects)))
+  word_sort.SortWords(wordObjects)
 
   // Print words and occurrences to console
   for _, word := range wordObjects {
