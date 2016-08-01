@@ -15,9 +15,9 @@ func (this ByOccurrences) Len() int {
 
 func (this ByOccurrences) Less(i, j int) bool {
   if this[i].NumOccurs == this[j].NumOccurs {
-    return this[j].Text < this[i].Text
+    return this[i].Text < this[j].Text
   } else {
-    return this[i].NumOccurs < this[j].NumOccurs
+    return this[j].NumOccurs < this[i].NumOccurs
   }
 }
 
@@ -40,5 +40,5 @@ func BuildWords(wordOccurs map[string]int) []Word {
 
 // Sort word occurrences from greatest to least
 func SortWords(words []Word) {
-	sort.Sort(sort.Reverse(ByOccurrences(words)))
+	sort.Sort(ByOccurrences(words))
 }
