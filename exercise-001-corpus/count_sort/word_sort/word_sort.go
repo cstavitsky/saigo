@@ -13,6 +13,8 @@ func (this ByOccurrences) Len() int {
   return len(this)
 }
 
+//When sorting by number of occurrences, invert the typical this[i] < this[j]
+//If there is a tie, sort alphabetically (keep the typical this[i] < this[j])
 func (this ByOccurrences) Less(i, j int) bool {
   if this[i].NumOccurs == this[j].NumOccurs {
     return this[i].Text < this[j].Text
