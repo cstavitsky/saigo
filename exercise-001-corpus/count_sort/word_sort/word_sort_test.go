@@ -5,6 +5,7 @@ import(
 	"github.com/stretchr/testify/assert"
 )
 
+// Program should build word objects with word text and number of occurrences
 func TestBuildWords(t *testing.T) {
 	wordData := map[string]int{
 		"hello": 2,
@@ -23,6 +24,8 @@ func TestBuildWords(t *testing.T) {
 	assert.Equal(t, BuildWords(wordData), expected)
 }
 
+//Program should sort words by number of occurrences
+//If there is a tie in occurrences, program should sort tied words alphabetically
 func TestSortWords(t *testing.T) {
 	wordObjects := []Word{
 		{Text: "hello", NumOccurs: 2},
@@ -35,7 +38,7 @@ func TestSortWords(t *testing.T) {
 		{Text: "the", NumOccurs: 4},
 		{Text: "hello", NumOccurs: 2},
 		{Text: "plastic", NumOccurs: 1},
-		{Text: "wgihen", NumOccurs: 1},
+		{Text: "when", NumOccurs: 1},
 	}
 
 	SortWords(wordObjects)
