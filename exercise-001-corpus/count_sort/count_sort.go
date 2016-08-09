@@ -10,7 +10,15 @@ import (
 
 func main() {
 	// Read the file passed in as argument and convert to string
-  fileContents := word_count.ConvertToString(os.Args[1:][0])
+  var fileName string
+  if len(os.Args) == 2 {
+    fileName = os.Args[1:][0]
+  } else {
+    fmt.Println("Usage: count_sort < file_name >")
+    return
+  }
+
+  fileContents := word_count.ConvertToString(fileName)
 
   // Remove non-word characters from content string
   stripped := word_count.StripPunc(fileContents)
